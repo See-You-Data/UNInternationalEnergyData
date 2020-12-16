@@ -1,0 +1,33 @@
+name: energy-project-dev
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7.*
+# data
+  - numpy >=1.16
+  - pandas >=1
+  - pandas-profiling
+# plotting
+  - altair >=3
+  - matplotlib >=3.1
+  - seaborn
+# jupyterlab
+  - jupyterlab
+  - jupyterlab-git
+  - jupyterlab_code_formatter
+  - jupyter-lsp
+#  - nb_black
+  - nodejs
+  - watermark
+# unit testing
+  - pytest >=5.4
+# code quality
+  - flake8
+  - pylint
+  - black
+  - isort
+# utilities
+  - pip >=20
+  - tqdm
+# try from project
+#  - pyprojroot
