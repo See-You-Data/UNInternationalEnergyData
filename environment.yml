@@ -16,6 +16,7 @@ dependencies:
   - jupyterlab-git
   - jupyterlab_code_formatter
   - jupyter-lsp
+  - nbdime
 #  - nb_black
   - nodejs
   - watermark

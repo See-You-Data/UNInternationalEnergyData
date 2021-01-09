@@ -118,6 +118,9 @@ project_env
 # PyCharm CE project settings
 .idea/
 
+# VSCode config
+.vscode/*
+
 # macOS
 .DS_Store
 
