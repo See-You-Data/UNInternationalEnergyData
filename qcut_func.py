@@ -4,6 +4,7 @@ import math as m
 def qcut_james(x, q):
     ret = x.sort_values(ascending=False)
     col_len = len(ret)
+    # col_len = len(x)
     quart_len = m.floor(col_len / q)
     quart_modulo = col_len % q
     ret_categories = []
@@ -28,8 +29,8 @@ def qcut_james(x, q):
             bin_no = bin_no + 1
             ret_categories.append(bin_no)
 
-
-
+    # ret.columns()
+    
     # return [ret, col_len, quart_len, quart_modulo]
-    return [bin_boundary, ret_categories]
-    # return bin_boundary
+    return ret.columns()
+    # return [bin_boundary, ret_categories]
