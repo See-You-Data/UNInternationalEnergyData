@@ -1,6 +1,6 @@
 # def qcut_james(x,q,labels):
 
-#brief text to test personal access token
+#rechanging comment after git update
 import math as m
 
 def qcut_james(x, q):
