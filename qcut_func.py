@@ -1,6 +1,5 @@
 # def qcut_james(x,q,labels):
 
-#rechanging comment after git update
 import math as m
 
 def qcut_james(x, q):
