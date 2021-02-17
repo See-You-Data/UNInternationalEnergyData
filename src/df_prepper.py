@@ -42,9 +42,9 @@ def df_groupby_flatten(df_groupby):
 	df_groupby.set_index(df_groupby.columns[1],inplace=True)
 	return(df_groupby)
 
-def df_groupby(df,cols_to_keep,cols_to_groupby,aggregate='sum'):
+def df_groupby_then_flatten(df,cols_to_keep,cols_to_groupby,aggregate='sum'):
 	'''
-	Perform a groupby on the raw dataframe
+	Perform a groupby on the raw dataframe, then flatten with df_groupby_flatten()
 
 	Parameters
 	----------
@@ -59,7 +59,7 @@ def df_groupby(df,cols_to_keep,cols_to_groupby,aggregate='sum'):
  	
  	Returns
  	-------
- 	df_groupby : pandas groupby object
+ 	df_groupby : pandas dataframe object
 	'''
 	if aggregate == 'sum':
 		df_groupby = df[cols_to_keep].groupby(cols_to_groupby).sum()
