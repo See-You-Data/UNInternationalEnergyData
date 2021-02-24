@@ -7,13 +7,13 @@ import pandas as pd
 # The purpose of this module is to replicate the qcut function due to issues
 # when calling qcut in modules
 def qcut_james(x, q, labels=[]):
-    ret = x.sort_values(ascending=False)
+    ret = x.sort_values(ascending=True)
     col_len = len(ret)
 
     # The following logic will return a warning if labels is declared but is not
     # equal to the length defined by q.
     # need to make this exit the func rather than set each row to the warning message
-    if (len(labels) != q) & (not (not labels)):
+    if (len(labels) != q) & (len(labels) != 0):
         return "labels should be the same length as q"
 
     # utilizing linspace creates quick boundaries for the grouping function
@@ -28,7 +28,7 @@ def qcut_james(x, q, labels=[]):
             if i <= bin_boundary[bin_no]:
                 ret_categories.append(labels[bin_no-1])
             else:
-                bin_no = bin_no + 1
+                bin_no += 1
                 ret_categories.append(labels[bin_no-1])
 
     if not labels:
@@ -38,7 +38,7 @@ def qcut_james(x, q, labels=[]):
             if i <= bin_boundary[bin_no]:
                 ret_categories.append(bin_no)
             else:
-                bin_no = bin_no + 1
+                bin_no += 1
                 ret_categories.append(bin_no)
 
     # .to_frame() turns a series into a dataframe, which can then be appended
@@ -47,14 +47,9 @@ def qcut_james(x, q, labels=[]):
     # This is done in order to return a column in the original order rather than
     # a sorted order. There is scope for improvement/ reduction in code here
 
-    x = x.to_frame()
-    x = x.assign(
-        category=ret_categories
-    )
-
     ret = ret.to_frame()
     ret = ret.assign(
         category=ret_categories
     )
 
-    return [type(ret)]
+    return ret['category']
