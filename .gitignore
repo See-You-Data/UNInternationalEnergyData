@@ -120,6 +120,7 @@ project_env
 
 # VSCode config
 .vscode/*
+.vs/
 
 # macOS
 .DS_Store
